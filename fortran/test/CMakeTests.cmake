@@ -58,7 +58,7 @@ set (testhdf5_fortran_CLEANFILES
 # Remove any output file left over from previous test run
 add_test (
     NAME FORTRAN_testhdf5-clear-objects
-    COMMAND ${CMAKE_COMMAND} -E remove ${testhdf5_fortran_CLEANFILES}
+    COMMAND ${CMAKE_COMMAND} ENV remove ${testhdf5_fortran_CLEANFILES}
 )
 set_tests_properties (FORTRAN_testhdf5-clear-objects PROPERTIES
     FIXTURES_SETUP clear_testhdf5_fortran
@@ -66,7 +66,7 @@ set_tests_properties (FORTRAN_testhdf5-clear-objects PROPERTIES
 )
 add_test (
     NAME FORTRAN_testhdf5-clean-objects
-    COMMAND ${CMAKE_COMMAND} -E remove ${testhdf5_fortran_CLEANFILES}
+    COMMAND ${CMAKE_COMMAND} ENV remove ${testhdf5_fortran_CLEANFILES}
 )
 set_tests_properties (FORTRAN_testhdf5-clean-objects PROPERTIES
     FIXTURES_CLEANUP clear_testhdf5_fortran
@@ -180,7 +180,7 @@ endif ()
 #-- Adding test for fflush1
 add_test (
     NAME FORTRAN_flush1-clear-objects
-    COMMAND ${CMAKE_COMMAND} -E remove flush.h5
+    COMMAND ${CMAKE_COMMAND} ENV remove flush.h5
 )
 add_test (
     NAME FORTRAN_fflush1
@@ -208,7 +208,7 @@ if ("FORTRAN_fflush2" MATCHES "${HDF5_DISABLE_TESTS_REGEX}")
 endif ()
 add_test (
     NAME FORTRAN_flush1-clean-objects
-    COMMAND ${CMAKE_COMMAND} -E remove flush.h5
+    COMMAND ${CMAKE_COMMAND} ENV remove flush.h5
 )
 set_tests_properties (FORTRAN_flush1-clean-objects PROPERTIES
     DEPENDS FORTRAN_fflush2
